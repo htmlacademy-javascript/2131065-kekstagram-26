@@ -22,7 +22,6 @@ function getRandomId (min, max) {
 getRandomId (1, 25);
 
 function checkStringLength(string, maxlenght) {
-
   if (string.length > maxlenght) {
     return false;
   } else {
