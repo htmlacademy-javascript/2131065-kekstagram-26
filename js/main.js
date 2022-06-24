@@ -21,12 +21,6 @@ function getRandomId (min, max) {
 }
 getRandomId (1, 25);
 
-    return Math.floor(Math.random() * (max - min) + min);
-  }
-}
-
-getRandomNumber(5, 1);
-
 function checkStringLength(string, maxlenght) {
 
   if (string.length > maxlenght) {
