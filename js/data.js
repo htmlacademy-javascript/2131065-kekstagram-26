@@ -1,4 +1,4 @@
-export {getRandomNumber, getRandomItem} from './data.js';
+import {getRandomNumber, getRandomItem} from './tools';
 
 
 const PHOTO_DESCRIPTIONS = [
