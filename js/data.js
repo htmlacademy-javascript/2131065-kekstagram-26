@@ -1,4 +1,4 @@
-import {getRandomNumber, getRandomItem} from './tools';
+import /*{getRandomNumber, getRandomItem} from*/ './tools';
 
 
 const PHOTO_DESCRIPTIONS = [
