@@ -1,4 +1,4 @@
-import {getRandomNumber, getRandomId, checkStringLength, getRandomItem} from './data.js';
+import {getRandomNumber, getRandomItem} from './data.js';
 
 
 const PHOTO_DESCRIPTIONS = [
