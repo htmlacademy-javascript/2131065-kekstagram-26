@@ -81,7 +81,7 @@ const photoData = () => ({
   comments: Array.from ({length: getRandomNumber(0, 4)}, photoDataComment),
 });
 
-const createPhotoObjects = Array.from ({length: PHOTO_DATA_COUNT}, photoData);
+const createPhotoObjects = () => Array.from ({length: PHOTO_DATA_COUNT}, photoData);
 
 pushId();
 
