@@ -35,4 +35,4 @@ function getRandomItem(massiveName, maxStringNumber) {
 }
 
 
-export {getRandomNumber, getRandomItem};
+export { getRandomNumber, getRandomItem };
