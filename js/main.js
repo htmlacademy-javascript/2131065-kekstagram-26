@@ -1,1 +1,2 @@
-import './data.js';
+import { createPhotoObjects } from './data.js';
+createPhotoObjects();

@@ -81,16 +81,17 @@ const photoData = () => ({
   comments: Array.from ({length: getRandomNumber(0, 4)}, photoDataComment),
 });
 
-const photoDataObjects = Array.from ({length: PHOTO_DATA_COUNT}, photoData);
+const createPhotoObjects = Array.from ({length: PHOTO_DATA_COUNT}, photoData);
 
 pushId();
 
 function pushId() {
-  for (let i = 0; i < photoDataObjects.length; i++) {
-    photoDataObjects[i].id = i + 1;
-    photoDataObjects[i].url =`photos/${  i + 1  }.jpg`;
-    for (let j = 0; j < photoDataObjects[i].comments.length; j++) {
-      photoDataObjects[i].comments[j].id = j + 1;
+  for (let i = 0; i < createPhotoObjects.length; i++) {
+    createPhotoObjects[i].id = i + 1;
+    createPhotoObjects[i].url =`photos/${  i + 1  }.jpg`;
+    for (let j = 0; j < createPhotoObjects[i].comments.length; j++) {
+      createPhotoObjects[i].comments[j].id = j + 1;
     }
   }
 }
+export { createPhotoObjects };
