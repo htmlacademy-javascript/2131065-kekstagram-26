@@ -1,2 +1,2 @@
-import { createPhotoObjects } from './data.js';
-createPhotoObjects();
+import { collectPhotoDataObjects } from './data.js';
+collectPhotoDataObjects();
