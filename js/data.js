@@ -64,7 +64,8 @@ const COMMENTORS_NAMES = [
   'Екатерина Черняева',
 ];
 
-const PHOTO_DATA_COUNT = 25;
+
+const PHOTO_DATA_COUNT = 26;
 
 
 const photoDataComment  = () => ({
@@ -75,11 +76,12 @@ const photoDataComment  = () => ({
 });
 const photoData = () => ({
   id: 1,
-  url: '',
+  url: `photos/${getRandomNumber(1, PHOTO_DATA_COUNT)}.jpg`,
   description: getRandomItem(PHOTO_DESCRIPTIONS, PHOTO_DESCRIPTIONS.length - 1),
   likes: getRandomNumber(15, 200),
   comments: Array.from ({length: getRandomNumber(0, 4)}, photoDataComment),
 });
+
 
 function collectPhotoDataObjects() {
   const photoDataObject = Array.from ({length: PHOTO_DATA_COUNT}, photoData);
@@ -89,11 +91,11 @@ function collectPhotoDataObjects() {
   function pushId() {
     for (let i = 0; i < photoDataObject.length; i++) {
       photoDataObject[i].id = i + 1;
-      photoDataObject[i].url =`photos/${  i + 1  }.jpg`;
       for (let j = 0; j < photoDataObject[i].comments.length; j++) {
         photoDataObject[i].comments[j].id = j + 1;
       }
     }
   }
+  return photoDataObject;
 }
-export { collectPhotoDataObjects };
+export {collectPhotoDataObjects};
