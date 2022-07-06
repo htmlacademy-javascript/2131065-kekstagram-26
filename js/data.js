@@ -65,7 +65,7 @@ const COMMENTORS_NAMES = [
 ];
 
 
-const PHOTO_DATA_COUNT = 26;
+const PHOTO_DATA_COUNT = 25;
 
 
 const photoDataComment  = () => ({
