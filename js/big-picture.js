@@ -33,14 +33,14 @@ const getBigPicture = () => {
       unHide(bigPicture);
       toHide(bigPicture.querySelector('.social__comment-count'));
       toHide(bigPicture.querySelector('.comments-loader'));
-      const drawComments = () => {
-        bigPicture.querySelector('.big-picture__img img').src = pictureContainerItems[i].url;
-        bigPicture.querySelector('.likes-count').textContent = pictureContainerItems[i].likes;
-        bigPicture.querySelector('.social__caption').textContent = pictureContainerItems[i].description;
-        bigPicture.querySelector('.comments-count').textContent = pictureContainerItems[i].comments.length;
-        for(let j = 0; j < pictureContainerItems[i].comments.length; j++) {
-          commentsList.insertAdjacentHTML('beforeend',
-            `<li class="social__comment">
+
+      bigPicture.querySelector('.big-picture__img img').src = pictureContainerItems[i].url;
+      bigPicture.querySelector('.likes-count').textContent = pictureContainerItems[i].likes;
+      bigPicture.querySelector('.social__caption').textContent = pictureContainerItems[i].description;
+      bigPicture.querySelector('.comments-count').textContent = pictureContainerItems[i].comments.length;
+      for(let j = 0; j < pictureContainerItems[i].comments.length; j++) {
+        commentsList.insertAdjacentHTML('beforeend',
+          `<li class="social__comment">
           <img
             class="social__picture"
             src="${  pictureContainerItems[i].comments[j].avatar  }"
@@ -48,9 +48,8 @@ const getBigPicture = () => {
             width="35" height="35">
             <p class="social__text">${  pictureContainerItems[i].comments[j].message  }</p>
         </li>`);
-        }
-      };
-      drawComments(); //Спорный момент - стоит ли сначала объявлять, а тут вызывать функцию? Мне кажется что так экономнее с точки зрения ресурсов, но я не уверен.
+      }
+
     });
   }
 };
