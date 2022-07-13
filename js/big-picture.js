@@ -33,7 +33,6 @@ const getBigPicture = () => {
       unHide(bigPicture);
       toHide(bigPicture.querySelector('.social__comment-count'));
       toHide(bigPicture.querySelector('.comments-loader'));
-
       bigPicture.querySelector('.big-picture__img img').src = pictureContainerItems[i].url;
       bigPicture.querySelector('.likes-count').textContent = pictureContainerItems[i].likes;
       bigPicture.querySelector('.social__caption').textContent = pictureContainerItems[i].description;
@@ -49,7 +48,6 @@ const getBigPicture = () => {
             <p class="social__text">${  pictureContainerItems[i].comments[j].message  }</p>
         </li>`);
       }
-
     });
   }
 };
