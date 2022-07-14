@@ -15,3 +15,5 @@ pictureContainerItems.forEach(({url, description, likes, comments}) => {
   picturesContainerFragment.querySelector('.picture__likes').textContent = likes;
   picturesContainer.appendChild(picturesContainerFragment);
 });
+
+export {pictureContainerItems};
