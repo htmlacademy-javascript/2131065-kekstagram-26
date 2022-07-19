@@ -1,4 +1,5 @@
 import {pictureContainerItems } from './picture.js';
+
 const minPictures = document.querySelectorAll('.picture');
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureCancel = document.querySelector('.big-picture__cancel');
@@ -22,7 +23,6 @@ window.onkeydown = ( event ) => {
 bigPictureCancel.addEventListener('click', () => {
   toHide(bigPicture);
   document.body.classList.remove('modal-open');
-
 });
 
 const getBigPicture = () => {
@@ -51,4 +51,4 @@ const getBigPicture = () => {
     });
   }
 };
-export{getBigPicture};
+export{getBigPicture, unHide, toHide};
