@@ -13,7 +13,6 @@ uploadFileInput.addEventListener('change', function () {
     document.body.classList.add('modal-open');
     uploadedImgComment.focus();
     uploadedImgHashtag.focus();
-
     const [file] = uploadFileInput.files;
     if (file) {
       document.querySelector('.img-upload__preview img').src = URL.createObjectURL(file);
@@ -21,21 +20,20 @@ uploadFileInput.addEventListener('change', function () {
   }
 });
 
-uploadedImgComment.onblur = () => {
-  window.onkeydown = (event) => {
-    if (event.keyCode === 27) {
-      toHide(uploadImgOverlay);
-      //console.log('blur');
-      document.body.classList.remove('modal-open');
-      uploadFileInput.value = '';
-      document.querySelector('.img-upload__preview img').src = '';
-    }
-  };
+
+window.onkeydown = (event) => {
+  if (event.keyCode === 27) {
+    toHide(uploadImgOverlay);
+    toHide(document.querySelector('.big-picture'));
+    document.body.classList.remove('modal-open');
+    uploadFileInput.value = '';
+    document.querySelector('.img-upload__preview img').src = '';
+  }
 };
 
+
 uploadedImgComment.onfocus = () => {
-  //console.log('FOCUSE');
-  window.onkeydown = (event) => {
+  uploadedImgComment.onkeydown = (event) => {
     event.stopPropagation();
   };
 };
