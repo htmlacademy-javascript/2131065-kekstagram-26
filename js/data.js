@@ -78,7 +78,7 @@ const photoData = () => ({
   url: `photos/${getRandomNumber(1, PHOTO_DATA_COUNT)}.jpg`,
   description: getRandomItem(PHOTO_DESCRIPTIONS, PHOTO_DESCRIPTIONS.length - 1),
   likes: getRandomNumber(15, 200),
-  comments: Array.from ({length: getRandomNumber(0, 4)}, photoDataComment),
+  comments: Array.from ({length: getRandomNumber(0, 13)}, photoDataComment),
 });
 
 
