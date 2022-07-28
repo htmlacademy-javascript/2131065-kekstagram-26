@@ -1,4 +1,5 @@
 import {pictureContainerItems } from './picture.js';
+import './effects.js';
 
 const minPictures = document.querySelectorAll('.picture');
 const bigPicture = document.querySelector('.big-picture');

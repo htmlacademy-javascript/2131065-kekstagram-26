@@ -28,6 +28,7 @@ window.onkeydown = (event) => {
     document.body.classList.remove('modal-open');
     uploadFileInput.value = '';
     document.querySelector('.img-upload__preview img').src = '';
+    document.querySelector('.img-upload__preview img').removeAttribute('class');
   }
 };
 
@@ -43,4 +44,5 @@ uploadImgCancel.addEventListener('click', () => {
   document.body.classList.remove('modal-open');
   uploadFileInput.value = '';
   document.querySelector('.img-upload__preview img').src = '';
+  document.querySelector('.img-upload__preview img').removeAttribute('class');
 });
