@@ -1,7 +1,5 @@
-import {pictureContainerItems } from './picture.js';
 import './effects.js';
 
-const minPictures = document.querySelectorAll('.picture');
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureCancel = document.querySelector('.big-picture__cancel');
 const commentsList = document.querySelector('.social__comments');
@@ -14,8 +12,8 @@ const toHide = (item) => {
   item.classList.add('hidden');
 };
 
-window.onkeydown = ( event ) => {
-  if ( event.keyCode === 27 ) {
+window.onkeydown = (event) => {
+  if (event.keyCode === 27) {
     toHide(bigPicture);
     document.body.classList.remove('modal-open');
   }
@@ -26,30 +24,31 @@ bigPictureCancel.addEventListener('click', () => {
   document.body.classList.remove('modal-open');
 });
 
-const getBigPicture = () => {
-  for(let i = 0; i < minPictures.length; i++) {
+const getBigPicture = (posts) => {
+  const minPictures = document.querySelectorAll('.picture');
+  for (let i = 0; i < minPictures.length; i++) {
     minPictures[i].addEventListener('click', () => {
       document.body.classList.add('modal-open');
       commentsList.innerHTML = '';
       unHide(bigPicture);
       toHide(bigPicture.querySelector('.social__comment-count'));
       toHide(bigPicture.querySelector('.comments-loader'));
-      bigPicture.querySelector('.big-picture__img img').src = pictureContainerItems[i].url;
-      bigPicture.querySelector('.likes-count').textContent = pictureContainerItems[i].likes;
-      bigPicture.querySelector('.social__caption').textContent = pictureContainerItems[i].description;
-      bigPicture.querySelector('.comments-count').textContent = pictureContainerItems[i].comments.length;
-      for(let j = 0; j < pictureContainerItems[i].comments.length; j++) {
+      bigPicture.querySelector('.big-picture__img img').src = posts[i].url;
+      bigPicture.querySelector('.likes-count').textContent = posts[i].likes;
+      bigPicture.querySelector('.social__caption').textContent = posts[i].description;
+      bigPicture.querySelector('.comments-count').textContent = posts[i].comments.length;
+      for (let j = 0; j < posts[i].comments.length; j++) {
         commentsList.insertAdjacentHTML('beforeend',
           `<li class="social__comment">
           <img
             class="social__picture"
-            src="${  pictureContainerItems[i].comments[j].avatar  }"
-            alt="${  pictureContainerItems[i].comments[j].name  }"
+            src="${posts[i].comments[j].avatar}"
+            alt="${posts[i].comments[j].name}"
             width="35" height="35">
-            <p class="social__text">${  pictureContainerItems[i].comments[j].message  }</p>
+            <p class="social__text">${posts[i].comments[j].message}</p>
         </li>`);
       }
     });
   }
 };
-export{getBigPicture, unHide, toHide};
+export { getBigPicture, unHide, toHide };
