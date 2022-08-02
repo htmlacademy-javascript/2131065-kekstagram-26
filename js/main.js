@@ -1,3 +1,3 @@
-import { getData } from './get-data.js';
+import { getData } from './api.js';
 getData();
 import './upload-form.js';

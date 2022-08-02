@@ -34,5 +34,24 @@ function getRandomItem(massiveName, maxStringNumber) {
   return massiveName[getRandomNumber(0, maxStringNumber)];
 }
 
+const showErrorMessage = (errorText) => {
+  const errorMessage = document.createElement('p');
+  errorMessage.classList.add('overlay', 'loader');
+  errorMessage.style = `
+    text-align: center;
+    text-transform: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;`;
+  errorMessage.innerText = errorText;
+  document.body.appendChild(errorMessage);
 
-export { getRandomNumber, getRandomItem };
+  const hideErrorMessage = () => {
+    errorMessage.remove();
+  };
+  setTimeout(hideErrorMessage, 3000);
+};
+
+export { getRandomNumber, getRandomItem, showErrorMessage };

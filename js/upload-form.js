@@ -1,11 +1,38 @@
 import { unHide, toHide } from './big-picture.js';
+import { sendData } from './api.js';
 
 const uploadFileInput = document.querySelector('#upload-file');
 const uploadImgOverlay = document.querySelector('.img-upload__overlay');
-const uploadImgCancel = document.querySelector('.img-upload__cancel');
+const uploadForm = document.querySelector('.img-upload__form');
+const cancelUploadImg = document.querySelector('.img-upload__cancel');
 const uploadedImgComment = document.querySelector('.text__description');
 const uploadedImgHashtag = document.querySelector('.text__hashtags');
 
+function showSuccessMessage() {
+  const successUploadMessage = document.querySelector('#success').content;
+  const successUploadMessageBtn = document.querySelector('.success__button');
+  document.body.appendChild(successUploadMessage);
+}
+
+const closeUploadForm = () => {
+  toHide(uploadImgOverlay);
+  document.body.classList.remove('modal-open');
+  uploadFileInput.value = '';
+  document.querySelector('.img-upload__preview img').src = '';
+  document.querySelector('.img-upload__preview img').removeAttribute('class');
+};
+
+uploadForm.onsubmit = (evt) => {
+  evt.preventDefault();
+  if (uploadedImgHashtag.value !== '') {
+    const formData = new FormData(evt.target);
+    sendData(formData);
+    closeUploadForm();
+    showSuccessMessage();
+  } else {
+    console.log('Форма невалидна');
+  }
+};
 
 uploadFileInput.addEventListener('change', function () {
   if (this.value) {
@@ -21,8 +48,8 @@ uploadFileInput.addEventListener('change', function () {
 });
 
 
-window.onkeydown = (event) => {
-  if (event.keyCode === 27) {
+window.onkeydown = (evt) => {
+  if (evt.keyCode === 27) {
     toHide(uploadImgOverlay);
     toHide(document.querySelector('.big-picture'));
     document.body.classList.remove('modal-open');
@@ -34,15 +61,11 @@ window.onkeydown = (event) => {
 
 
 uploadedImgComment.onfocus = () => {
-  uploadedImgComment.onkeydown = (event) => {
-    event.stopPropagation();
+  uploadedImgComment.onkeydown = (evt) => {
+    evt.stopPropagation();
   };
 };
 
-uploadImgCancel.addEventListener('click', () => {
-  toHide(uploadImgOverlay);
-  document.body.classList.remove('modal-open');
-  uploadFileInput.value = '';
-  document.querySelector('.img-upload__preview img').src = '';
-  document.querySelector('.img-upload__preview img').removeAttribute('class');
+cancelUploadImg.addEventListener('click', () => {
+  closeUploadForm();
 });
